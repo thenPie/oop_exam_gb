@@ -2,19 +2,19 @@ package Domain;
 
 public class ComplexNumber {
     
-    private int real;
-    private int imaginary;
+    private double real;
+    private double imaginary;
 
-    public ComplexNumber(int real, int imaginary) {
+    public ComplexNumber(Double real, Double imaginary) {
         this.real = real;
         this.imaginary = imaginary;
     }
 
-    public int getReal() {
+    public double getReal() {
         return real;
     }
 
-    public int getImaginary() {
+    public double getImaginary() {
         return imaginary;
     }
 
