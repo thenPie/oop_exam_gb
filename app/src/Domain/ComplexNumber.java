@@ -10,34 +10,24 @@ public class ComplexNumber {
         this.imaginary = imaginary;
     }
 
-    private int getReal() {
+    public int getReal() {
         return real;
     }
 
-    private int getImaginary() {
+    public int getImaginary() {
         return imaginary;
     }
 
-    private void setReal(int real) {
+    public void setReal(int real) {
         this.real = real;
     }
 
-    private void setImaginary(int imaginary) {
+    public void setImaginary(int imaginary) {
         this.imaginary = imaginary;
     }
 
-    // useless, to show it
-    public void showC() {
+    public void showCN() {
         System.out.println(this.real + " + " + this.imaginary + "i");
-    }
-
-    public static ComplexNumber add(ComplexNumber cn1, ComplexNumber cn2) {
-        ComplexNumber cn = new ComplexNumber(0, 0);
-
-        cn.setReal(cn1.getReal() + cn2.getReal());
-        cn.setImaginary(cn1.getImaginary() + cn2.getImaginary());
-
-        return cn;
     }
 
 }
