@@ -29,7 +29,7 @@ public class Actions {
         return cn;
     }
 
-    interface iAction {
+    public interface iAction {
         void act();
     }
 
