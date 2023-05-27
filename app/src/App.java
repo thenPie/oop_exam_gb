@@ -45,6 +45,7 @@ public class App {
             while (actions) {
                 View.actions();
                 
+                // ocp, please fix
                 choice = input.nextInt();
                 if (choice == 1) {
                     res = CNaddition.add(cn1, cn2);
