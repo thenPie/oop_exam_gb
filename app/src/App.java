@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import Domain.ComplexNumber;
+import Domain.Logger;
+import Domain.WhatUsed;
 import Domain.CNaddition;
 import Domain.CNmultiplication;
 import Domain.CNdivision;
@@ -11,9 +15,13 @@ public class App {
     public static void main(String[] args) throws Exception {
 
 
-        ComplexNumber cn1 = new ComplexNumber(0, 0);
-        ComplexNumber cn2 = new ComplexNumber(0, 0);
-        ComplexNumber res = new ComplexNumber(0, 0);
+        WhatUsed command = new WhatUsed();
+        ComplexNumber cn1 = new ComplexNumber();
+        ComplexNumber cn2 = new ComplexNumber();
+        ComplexNumber res = new ComplexNumber();
+        List<String> CNlog = new ArrayList<>();
+        Logger log = new Logger();
+        String full = "none";
         
         Scanner input = new Scanner(System.in);
         int choice;
@@ -26,7 +34,6 @@ public class App {
             View.inputCN1();
             View.inputReal();
             r = input.nextDouble();
-
             View.inputImaginery();
             i = input.nextDouble();
             
@@ -35,7 +42,6 @@ public class App {
             View.inputCN2();
             View.inputReal();
             r = input.nextDouble();
-            
             View.inputImaginery();
             i = input.nextDouble();
             
@@ -49,23 +55,26 @@ public class App {
                 choice = input.nextInt();
                 if (choice == 1) {
                     res = CNaddition.add(cn1, cn2);
+                    command.setCommand(" + ");
                     actions = false;
                 } else if (choice == 2) {
                     res = CNmultiplication.multiplication(cn1, cn2);
+                    command.setCommand(" * ");
                     actions = false;
                 } else if (choice == 3) {
                     res = CNdivision.division(cn1, cn2);
+                    command.setCommand(" / ");
                     actions = false;
                 } else {
                     System.out.println("Чего?");
                 }
+                full = "(" + cn1.showCN() + ")" + command.getCommand() + "(" + cn2.showCN() + ")" + " = " + res.showCN() + "\n";
+                CNlog.add(full);
 
             }
-
-            cn1.showCN();
-            cn2.showCN();
-            res.showCN();
-
+            
+            System.out.println(full);
+            
             View.againOr();
             choice = input.nextInt();
             if (choice == 1) {
@@ -75,7 +84,10 @@ public class App {
                 working = false;
             }
         }
-
+        
+        for (String string : CNlog) {
+            log.log(string);
+        }
 
     }
 }

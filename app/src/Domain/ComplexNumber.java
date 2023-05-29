@@ -10,6 +10,11 @@ public class ComplexNumber {
         this.imaginary = imaginary;
     }
 
+    public ComplexNumber() {
+        this.real = 0;
+        this.imaginary = 0;
+    }
+
     public double getReal() {
         return real;
     }
@@ -26,8 +31,8 @@ public class ComplexNumber {
         this.imaginary = imaginary;
     }
 
-    public void showCN() {
-        System.out.println(this.real + " + " + this.imaginary + "i");
+    public String showCN() {
+        return this.real + " + " + this.imaginary + "i";
     }
 
 }
